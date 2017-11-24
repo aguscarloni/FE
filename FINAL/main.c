@@ -51,11 +51,41 @@ void Cargar_figura7(puntito_t **);
 
 int main(int argc, char** argv) {
     
-
+    int i, j,k;
     
     Generar_marco();
+    /*
+    for(i=0;i<FILASCONBORDE;i++)
+    {
+        printf("\n");
+        for(j=0;j<COLUMNASCONBORDE;j++)
+        {
+            if(matriz[i][j].estado==NO_BLOQUEADO)
+                printf("|*|\t");
+            else 
+                printf("\t");
+        }
+    }
+       */
+    
   Generar_figuras();  //Tienen que ir antes de cargar, sino no carga nada
-  Cargar_nueva_figura();
+ 
+  for(k=0;k<QFIGURAS;k++)
+  {   
+      printf("\n");
+  for(i=0;i<FILASOFF;i++)
+    {
+        printf("\n");
+        for(j=0;j<COLUMNASCONBORDE;j++)
+        {
+            if(figuras[k][i][j].estado==NO_BLOQUEADO)
+                printf("|*|\t");
+            else 
+                printf("\t");
+        }
+    }
+  }
+  // Cargar_nueva_figura();
   
 
     return (EXIT_SUCCESS);
@@ -94,18 +124,18 @@ void Generar_marco(void)
     int i,j;
     
     /* Hay que ver si cerramos el marco en la parte superior de la pantalla ON
-     * Cerrar la parte OFF  me parece al pedo
-     * for(i=0;i<FILASCONBORDE;i++)
-        matriz[i][0].estado=BLOQUEADO;
-    */
+     * Cerrar la parte OFF  me parece al pedo*/
+       for(i=0;i<FILASCONBORDE;i++)
+        matriz[i][0].estado=NO_BLOQUEADO;
+    
     for(i=0;i<FILASCONBORDE;i++)
-        matriz[i][COLUMNASCONBORDE-1].estado=BLOQUEADO;
+        matriz[i][COLUMNASCONBORDE-1].estado=NO_BLOQUEADO;
     
     for(j=0;j<COLUMNASCONBORDE;j++)
-        matriz[0][j].estado=BLOQUEADO;
+        matriz[0][j].estado=NO_BLOQUEADO;
     
     for(j=0;j<COLUMNASCONBORDE;j++)
-        matriz[FILASCONBORDE-1][0].estado=BLOQUEADO;
+        matriz[FILASCONBORDE-1][j].estado=NO_BLOQUEADO;
     
     
     
