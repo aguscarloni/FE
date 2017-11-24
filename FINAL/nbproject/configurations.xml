@@ -4,6 +4,7 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>BackEnd.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -44,6 +45,8 @@
       </compileType>
       <item path="BackEnd.c" ex="false" tool="0" flavor2="0">
       </item>
+      <item path="BackEnd.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="FrontEnd-Allegro.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="FrontEnd-RaspberryPi.c" ex="false" tool="0" flavor2="0">
@@ -73,6 +76,8 @@
         </asmTool>
       </compileType>
       <item path="BackEnd.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="BackEnd.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="FrontEnd-Allegro.c" ex="false" tool="0" flavor2="0">
       </item>
