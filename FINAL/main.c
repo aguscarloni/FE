@@ -15,6 +15,11 @@
 #include <stdlib.h>
 #include <time.h>
 
+/////            MACROS            /////
+#define FILASCONBORDE 20
+#define COLUMNASCONBORDE 16
+#define FIGURAS 7
+#define FILASOFF
 
 
 typedef struct
@@ -25,12 +30,14 @@ typedef struct
 }puntito_t;
 
 
-puntito_t matriz[20][16];
-puntito_t figuras[7][4][16];
-enum {BLOQUEADO,LIBRE,NO_BLOQUEADO};
+puntito_t matriz[FILASCONBORDE][COLUMNASCONBORDE];
+puntito_t figuras[FIGURAS][FILASOFF][COLUMNASCONBORDE];
+enum {LIBRE,BLOQUEADO,NO_BLOQUEADO};
 
 
+////             Prototipos                ////
 void Generar_figuras(int seed);
+Void Generar_marco(void);
 /*
  * 
  */
@@ -38,6 +45,7 @@ int main(int argc, char** argv) {
     
     unsigned int seed;
     
+    Generar_marco();
     srand (time(NULL)%6);  // Hay que buscar un rand "real" que sea en t de ejec
   seed = rand() % 7 + 1;
 
@@ -53,4 +61,25 @@ void Generar_figuras(int seed)
 
 
 return;
+}
+
+void Generar_marco(void)
+{
+    int i,j;
+    
+    for(i=0;i<FILASCONBORDE;i++)
+        matriz[i][0].estado=BLOQUEADO;
+    
+    for(i=0;i<FILASCONBORDE;i++)
+        matriz[i][COLUMNASCONBORDE-1].estado=BLOQUEADO;
+    
+    for(j=0;j<COLUMNASCONBORDE;j++)
+        matriz[0][j].estado=BLOQUEADO;
+    
+    for(j=0;j<COLUMNASCONBORDE;j++)
+        matriz[FILASCONBORDE-1][0].estado=BLOQUEADO;
+    
+    
+    
+    
 }
