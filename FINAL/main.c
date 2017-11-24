@@ -31,7 +31,7 @@ typedef struct
 }puntito_t;
 
 
-puntito_t matriz[FILASCONBORDE][COLUMNASCONBORDE];
+puntito_t matriz_de_juego[FILASCONBORDE][COLUMNASCONBORDE];
 puntito_t figuras[QFIGURAS][FILASOFF][COLUMNASCONBORDE];
 enum {LIBRE,BLOQUEADO,NO_BLOQUEADO};
 
@@ -43,8 +43,11 @@ void Cargar_nueva_figura(void);
 
 void Cargar_figura1(puntito_t **);
 void Cargar_figura2(puntito_t **);
+void Cargar_figura3(puntito_t **);
 void Cargar_figura4(puntito_t **);
+
 void Cargar_figura5(puntito_t **);
+
 void Cargar_figura6(puntito_t **);
 void Cargar_figura7(puntito_t **);
 
@@ -106,13 +109,13 @@ void Generar_figuras(void)
     int i=0;
     
     
-    Cargar_figura1(figuras[i++]);
-    Cargar_figura2(figuras[i++]);
-    Cargar_figura3(figuras[i++]);
-    Cargar_figura4(figuras[i++]);
-    Cargar_figura5(figuras[i++]);
-    Cargar_figura6(figuras[i++]);
-    Cargar_figura7(figuras[i++]);
+    Cargar_figura1((puntito_t **)figuras[i++]);
+    Cargar_figura2((puntito_t **)figuras[i++]);
+    Cargar_figura3((puntito_t **)figuras[i++]);
+    Cargar_figura4((puntito_t **)figuras[i++]);
+    Cargar_figura5((puntito_t **)figuras[i++]);
+    Cargar_figura6((puntito_t **)figuras[i++]);
+    Cargar_figura7((puntito_t **)figuras[i++]);
 
         
 
@@ -126,16 +129,16 @@ void Generar_marco(void)
     /* Hay que ver si cerramos el marco en la parte superior de la pantalla ON
      * Cerrar la parte OFF  me parece al pedo*/
        for(i=0;i<FILASCONBORDE;i++)
-        matriz[i][0].estado=NO_BLOQUEADO;
+        matriz_de_juego[i][0].estado=NO_BLOQUEADO;
     
     for(i=0;i<FILASCONBORDE;i++)
-        matriz[i][COLUMNASCONBORDE-1].estado=NO_BLOQUEADO;
+        matriz_de_juego[i][COLUMNASCONBORDE-1].estado=NO_BLOQUEADO;
     
     for(j=0;j<COLUMNASCONBORDE;j++)
-        matriz[0][j].estado=NO_BLOQUEADO;
+        matriz_de_juego[0][j].estado=NO_BLOQUEADO;
     
     for(j=0;j<COLUMNASCONBORDE;j++)
-        matriz[FILASCONBORDE-1][j].estado=NO_BLOQUEADO;
+        matriz_de_juego[FILASCONBORDE-1][j].estado=NO_BLOQUEADO;
     
     
     
