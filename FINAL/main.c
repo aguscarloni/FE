@@ -21,6 +21,7 @@
 #define COLUMNASCONBORDE 16
 #define QFIGURAS 7
 #define FILASOFF 4
+#define MAXID   10000
 
 
 
@@ -100,7 +101,9 @@ int main(int argc, char** argv) {
                 printf("\t");
         }
     }
-       
+     printf("\n%d\n",matriz_de_juego[0][7].ID);  
+      printf("\n%d\n",matriz_de_juego[0][8].ID); 
+       printf("\n%d\n",matriz_de_juego[0][9].ID); 
   
 
     return (EXIT_SUCCESS);
@@ -108,12 +111,24 @@ int main(int argc, char** argv) {
 
 void Cargar_nueva_figura(void)
 {
-           unsigned int seed;
+    int i,j;       
+    unsigned int seed,ID;
+           
     srand (time(NULL));  // Hay que buscar un rand "real" que sea en t de ejec
   seed = rand() % 7 + 1;  // NetBeans recomienda getrandom
   
+  ID=rand()%MAXID;   //Genero un ID entre 0 y MAXID
   
   memcpy((void *)matriz_de_juego,(void *)(figuras+seed),sizeof(figuras[seed]));
+  
+      for(i=0;i<FILASOFF;i++)
+    {   
+        for(j=0;j<COLUMNASCONBORDE;j++)
+        {
+            if(matriz_de_juego[i][j].estado==NO_BLOQUEADO)  //Le asigno el número de ID a la figura
+                matriz_de_juego[i][j].ID=ID;
+        }
+    }
    
     
 }
