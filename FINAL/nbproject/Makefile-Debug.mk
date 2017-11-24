@@ -36,7 +36,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/BackEnd.o \
-	${OBJECTDIR}/FrontEnd.o \
+	${OBJECTDIR}/FrontEnd-Allegro.o \
+	${OBJECTDIR}/FrontEnd-RaspberryPi.o \
 	${OBJECTDIR}/main.o
 
 
@@ -69,10 +70,15 @@ ${OBJECTDIR}/BackEnd.o: BackEnd.c
 	${RM} "$@.d"
 	$(COMPILE.c) -g -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/BackEnd.o BackEnd.c
 
-${OBJECTDIR}/FrontEnd.o: FrontEnd.c
+${OBJECTDIR}/FrontEnd-Allegro.o: FrontEnd-Allegro.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FrontEnd.o FrontEnd.c
+	$(COMPILE.c) -g -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FrontEnd-Allegro.o FrontEnd-Allegro.c
+
+${OBJECTDIR}/FrontEnd-RaspberryPi.o: FrontEnd-RaspberryPi.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FrontEnd-RaspberryPi.o FrontEnd-RaspberryPi.c
 
 ${OBJECTDIR}/main.o: main.c
 	${MKDIR} -p ${OBJECTDIR}

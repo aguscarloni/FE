@@ -13,7 +13,8 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>BackEnd.c</itemPath>
-      <itemPath>FrontEnd.c</itemPath>
+      <itemPath>FrontEnd-Allegro.c</itemPath>
+      <itemPath>FrontEnd-RaspberryPi.c</itemPath>
       <itemPath>main.c</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -43,7 +44,9 @@
       </compileType>
       <item path="BackEnd.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="FrontEnd.c" ex="false" tool="0" flavor2="0">
+      <item path="FrontEnd-Allegro.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="FrontEnd-RaspberryPi.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
       </item>
@@ -71,7 +74,9 @@
       </compileType>
       <item path="BackEnd.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="FrontEnd.c" ex="false" tool="0" flavor2="0">
+      <item path="FrontEnd-Allegro.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="FrontEnd-RaspberryPi.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
       </item>
