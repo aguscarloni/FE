@@ -19,7 +19,7 @@
 #define FILASCONBORDE 20
 #define COLUMNASCONBORDE 16
 #define FIGURAS 7
-#define FILASOFF
+#define FILASOFF 4
 
 
 typedef struct
@@ -36,28 +36,29 @@ enum {LIBRE,BLOQUEADO,NO_BLOQUEADO};
 
 
 ////             Prototipos                ////
-void Generar_figuras(int seed);
+void Generar_figuras(void);
 Void Generar_marco(void);
 /*
  * 
  */
 int main(int argc, char** argv) {
     
-    unsigned int seed;
+
     
     Generar_marco();
-    srand (time(NULL)%6);  // Hay que buscar un rand "real" que sea en t de ejec
-  seed = rand() % 7 + 1;
 
-  Generar_figuras(seed);
+
+  Generar_figuras();
   
 
     return (EXIT_SUCCESS);
 }
 
-void Generar_figuras(int seed)
+void Generar_figuras(void)
 {
-
+        unsigned int seed;
+    srand (time(NULL)%6);  // Hay que buscar un rand "real" que sea en t de ejec
+  seed = rand() % 7 + 1;
 
 
 return;
@@ -67,9 +68,11 @@ void Generar_marco(void)
 {
     int i,j;
     
-    for(i=0;i<FILASCONBORDE;i++)
+    /* Hay que ver si cerramos el marco en la parte superior de la pantalla ON
+     * Cerrar la parte OFF  me parece al pedo
+     * for(i=0;i<FILASCONBORDE;i++)
         matriz[i][0].estado=BLOQUEADO;
-    
+    */
     for(i=0;i<FILASCONBORDE;i++)
         matriz[i][COLUMNASCONBORDE-1].estado=BLOQUEADO;
     
