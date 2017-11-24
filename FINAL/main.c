@@ -113,7 +113,7 @@ void Cargar_nueva_figura(void)
   seed = rand() % 7 + 1;  // NetBeans recomienda getrandom
   
   
-  memcpy((void *)matriz_de_juego,(void *)figuras[seed],sizeof(figuras[seed]));
+  memcpy((void *)matriz_de_juego,(void *)(figuras+seed),sizeof(figuras[seed]));
    
     
 }
