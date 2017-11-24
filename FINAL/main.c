@@ -114,29 +114,53 @@ void Generar_marco(void)
 
 void Cargar_figura1(puntito_t ** mataux)
 {
-    
+    int j;
+    for(j=6;j<10;j++)
+        mataux[0][j].estado=NO_BLOQUEADO;
 }
 void Cargar_figura2(puntito_t ** mataux)
 {
-    
+        int j;
+        mataux[0][7].estado=NO_BLOQUEADO;
+        for(j=7;j<10;j++)
+        mataux[1][j].estado=NO_BLOQUEADO;
 }
 void Cargar_figura3(puntito_t ** mataux)
 {
-
+        int j;
+        mataux[0][9].estado=NO_BLOQUEADO;
+        for(j=7;j<10;j++)
+        mataux[1][j].estado=NO_BLOQUEADO;
 }
 void Cargar_figura4(puntito_t ** mataux)
 {
-    
+            
+        mataux[0][7].estado=NO_BLOQUEADO;
+        mataux[0][8].estado=NO_BLOQUEADO;
+        mataux[1][7].estado=NO_BLOQUEADO;
+        mataux[1][8].estado=NO_BLOQUEADO;
+        
 }
 void Cargar_figura5(puntito_t ** mataux)
 {
-    
+            int j;
+        mataux[0][8].estado=NO_BLOQUEADO;
+        for(j=7;j<10;j++)
+        mataux[1][j].estado=NO_BLOQUEADO;
 }
 void Cargar_figura6(puntito_t **mataux)
 {
-    
+        mataux[0][9].estado=NO_BLOQUEADO;
+        mataux[0][8].estado=NO_BLOQUEADO;
+        mataux[1][7].estado=NO_BLOQUEADO;
+        mataux[1][8].estado=NO_BLOQUEADO;
+        
 }
 void Cargar_figura7(puntito_t **mataux)
 {
-    
+        mataux[0][7].estado=NO_BLOQUEADO;
+        mataux[0][6].estado=NO_BLOQUEADO;
+        mataux[1][7].estado=NO_BLOQUEADO;
+        mataux[1][8].estado=NO_BLOQUEADO;
+         
 }
