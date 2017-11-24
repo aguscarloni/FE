@@ -25,17 +25,21 @@
 
 
 
+
 typedef struct
 {
     unsigned int color;
+    unsigned int LED;
     int estado;
-    unsigned int ID;
+    unsigned int ID; 
+    
 }puntito_t;
 
 
 puntito_t matriz_de_juego[FILASCONBORDE][COLUMNASCONBORDE];
 puntito_t figuras[QFIGURAS][FILASOFF][COLUMNASCONBORDE];
 enum {LIBRE,BLOQUEADO,NO_BLOQUEADO};
+enum {ON,OFF};
 
 
 ////             Prototipos                ////
@@ -57,7 +61,7 @@ int main(int argc, char** argv) {
     int i, j,k;
     
     Generar_marco();
-    /*
+/*
     for(i=0;i<FILASCONBORDE;i++)
     {
         printf("\n");
@@ -89,7 +93,7 @@ int main(int argc, char** argv) {
     }
   }*/
   Cargar_nueva_figura();
-      
+ /*  
     for(i=0;i<FILASCONBORDE;i++)
     {
         printf("\n");
@@ -97,14 +101,16 @@ int main(int argc, char** argv) {
         {
             if(matriz_de_juego[i][j].estado==NO_BLOQUEADO)
                 printf("|*|\t");
+            if(matriz_de_juego[i][j].estado==BLOQUEADO)
+                printf("| |\t");
             else 
                 printf("\t");
         }
     }
-     printf("\n%d\n",matriz_de_juego[0][7].ID);  
-      printf("\n%d\n",matriz_de_juego[0][8].ID); 
-       printf("\n%d\n",matriz_de_juego[0][9].ID); 
-  
+     printf("\n%u\n",matriz_de_juego[0][7].ID);  
+     printf("\n%u\n",matriz_de_juego[0][8].ID); 
+     printf("\n%u\n",matriz_de_juego[0][9].ID); 
+  */
 
     return (EXIT_SUCCESS);
 }
@@ -115,7 +121,7 @@ void Cargar_nueva_figura(void)
     unsigned int seed,ID;
            
     srand (time(NULL));  // Hay que buscar un rand "real" que sea en t de ejec
-  seed = rand() % 7 + 1;  // NetBeans recomienda getrandom
+  seed = rand() % 7 ;  // NetBeans recomienda getrandom
   
   ID=rand()%MAXID;   //Genero un ID entre 0 y MAXID
   
@@ -159,16 +165,16 @@ void Generar_marco(void)
     /* Hay que ver si cerramos el marco en la parte superior de la pantalla ON
      * Cerrar la parte OFF  me parece al pedo*/
        for(i=0;i<FILASCONBORDE;i++)
-        matriz_de_juego[i][0].estado=NO_BLOQUEADO;
+        matriz_de_juego[i][0].estado=BLOQUEADO;
     
     for(i=0;i<FILASCONBORDE;i++)
-        matriz_de_juego[i][COLUMNASCONBORDE-1].estado=NO_BLOQUEADO;
+        matriz_de_juego[i][COLUMNASCONBORDE-1].estado=BLOQUEADO;
     
     for(j=0;j<COLUMNASCONBORDE;j++)
-        matriz_de_juego[0][j].estado=NO_BLOQUEADO;
+        matriz_de_juego[0][j].estado=BLOQUEADO;
     
     for(j=0;j<COLUMNASCONBORDE;j++)
-        matriz_de_juego[FILASCONBORDE-1][j].estado=NO_BLOQUEADO;
+        matriz_de_juego[FILASCONBORDE-1][j].estado=BLOQUEADO;
     
     
     
