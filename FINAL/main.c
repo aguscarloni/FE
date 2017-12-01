@@ -15,31 +15,16 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
-
-/////            MACROS            /////
-#define FILASCONBORDE 20
-#define COLUMNASCONBORDE 16
-#define QFIGURAS 7
-#define FILASOFF 4
-#define MAXID   10000
+#include "BackEnd.h"
 
 
+#define DEBUG 1
 
 
-typedef struct
-{
-    unsigned int color;
-    unsigned int LED;
-    int estado;
-    unsigned int ID; 
-    
-}puntito_t;
-
-
-puntito_t matriz_de_juego[FILASCONBORDE][COLUMNASCONBORDE];
+//Defincion de arreglo de figuras
 puntito_t figuras[QFIGURAS][FILASOFF][COLUMNASCONBORDE];
-enum {LIBRE,BLOQUEADO,NO_BLOQUEADO};
-enum {ON,OFF};
+
+
 
 
 ////             Prototipos                ////
@@ -60,8 +45,9 @@ int main(int argc, char** argv) {
     
     int i, j,k;
     
+    
     Generar_marco();
-/*
+
     for(i=0;i<FILASCONBORDE;i++)
     {
         printf("\n");
@@ -73,7 +59,7 @@ int main(int argc, char** argv) {
                 printf("\t");
         }
     }
-       */
+       
     
   Generar_figuras();  //Tienen que ir antes de cargar, sino no carga nada
  /*
@@ -111,6 +97,14 @@ int main(int argc, char** argv) {
      printf("\n%u\n",matriz_de_juego[0][8].ID); 
      printf("\n%u\n",matriz_de_juego[0][9].ID); 
   */
+  
+#if DEBUG
+  char prueba;
+  prueba = bajar_bloque();
+  mover_bloque_der();
+  mover_bloque_izq();
+  
+#endif
 
     return (EXIT_SUCCESS);
 }
@@ -121,9 +115,9 @@ void Cargar_nueva_figura(void)
     unsigned int seed,ID;
            
     srand (time(NULL));  // Hay que buscar un rand "real" que sea en t de ejec
-  seed = rand() % 7 ;  // NetBeans recomienda getrandom
+    seed = rand() % QFIGURAS ;  // NetBeans recomienda getrandom
   
-  ID=rand()%MAXID;   //Genero un ID entre 0 y MAXID
+    ID = rand()%MAXID;   //Genero un ID entre 0 y MAXID
   
   memcpy((void *)matriz_de_juego,(void *)(figuras+seed),sizeof(figuras[seed]));
   
@@ -155,7 +149,6 @@ void Generar_figuras(void)
 
         
 
-return;
 }
 
 void Generar_marco(void)
