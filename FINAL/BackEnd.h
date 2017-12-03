@@ -31,7 +31,9 @@ typedef struct
 //Defines Globales necesarios
 /////            MACROS            /////
 #define FILASCONBORDE 20
+#define FILAS (FILASCONBORDE-1)
 #define COLUMNASCONBORDE 16
+#define COLUMNAS (COLUMNASCONBORDE-2)
 #define QFIGURAS 7
 #define FILASOFF 4
 #define MAXID   10000
